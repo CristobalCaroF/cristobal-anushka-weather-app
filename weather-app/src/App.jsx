@@ -15,17 +15,27 @@ function App() {
   function handleAddActivity(newActivity) {
     setActivities([...activities, { id: uid(), ...newActivity }]);
   }
-  console.log(activities);
+
+  /*--------------------*/
+
+  function filterActivities() {
+    setActivities(
+      activities.filter((activity) => {
+        return activity.goodWeatherActivity === isGoodWeather;
+      })
+    );
+  }
+  /*--------------------*/
 
   return (
     <>
       <ul>
-        {activities.map((activity) => (
-          <li key={activity.id}>
+        {activities.map((activities) => (
+          <li key={activities.id}>
             <List
-              name={activity.name}
-              goodWeatherActivity={activity.goodWeatherActivity}
-              id={activity.id}
+              name={activities.name}
+              goodWeatherActivity={activities.goodWeatherActivity}
+              id={activities.id}
             />
           </li>
         ))}
