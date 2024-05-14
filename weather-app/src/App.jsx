@@ -29,7 +29,6 @@ function App() {
     }
     startFetching();
   }, []);
-  console.log("weather", weather);
 
   function handleAddActivity(newActivity) {
     setActivities([...activities, { id: uid(), ...newActivity }]);
