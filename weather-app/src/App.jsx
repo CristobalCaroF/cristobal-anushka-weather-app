@@ -35,6 +35,11 @@ function App() {
   return (
     <>
       <ul>
+        <h2>
+          {isGoodWeather
+            ? "The weather is awesome! Go outside and:"
+            : "Bad weather outside! Here's what you can do now:"}
+        </h2>
         {filterActivities.map((activity) => (
           <li key={activities.id}>
             <List
