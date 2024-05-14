@@ -32,6 +32,13 @@ function App() {
   // }
   /*--------------------*/
 
+  const handleDeleteActivity = (id) => {
+    const deletedActivitiesList = activities.filter(
+      (activity) => activity.id != id
+    );
+    setActivities(deletedActivitiesList);
+  };
+
   return (
     <>
       <ul>
@@ -46,7 +53,9 @@ function App() {
               name={activity.name}
               goodWeatherActivity={activity.goodWeatherActivity}
               id={activity.id}
+              onDeleteActivity={handleDeleteActivity}
             />
+            <button onClick={() => handleDeleteActivity(activity.id)}>x</button>
           </li>
         ))}
       </ul>
