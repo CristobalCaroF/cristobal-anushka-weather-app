@@ -3,7 +3,7 @@ import "./App.css";
 import Form from "./components/Form";
 import { uid } from "uid";
 import List from "./components/List";
-import useLocalStorageState from "use-local-storage-state";
+// import useLocalStorageState from "use-local-storage-state";
 
 const isGoodWeather = true;
 
@@ -15,13 +15,28 @@ function App() {
   function handleAddActivity(newActivity) {
     setActivities([...activities, { id: uid(), ...newActivity }]);
   }
+
+  const filterActivities = activities.filter(
+    (activity) => activity.isGoodWeather === isGoodWeather
+  );
+  console.log(filterActivities);
   console.log(activities);
+
+  /*--------------------*/
+
+  //   setActivities(
+  //     activities.filter((activity) => {
+  //       return activity.goodWeatherActivity === isGoodWeather;
+  //     })
+  //   );
+  // }
+  /*--------------------*/
 
   return (
     <>
       <ul>
-        {activities.map((activity) => (
-          <li key={activity.id}>
+        {filterActivities.map((activity) => (
+          <li key={activities.id}>
             <List
               name={activity.name}
               goodWeatherActivity={activity.goodWeatherActivity}
