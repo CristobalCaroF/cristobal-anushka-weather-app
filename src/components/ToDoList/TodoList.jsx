@@ -1,4 +1,5 @@
 import List from "../List/List";
+import "./ToDoList.css";
 
 const TodoList = ({ activities, handleDeleteActivity }) => {
   const sportsCategoryActivities = activities.filter(
@@ -22,35 +23,57 @@ const TodoList = ({ activities, handleDeleteActivity }) => {
   );
 
   return (
-    <>
-      {sportsCategoryActivities.length > 0 && <h3>Sports</h3>}
-      <List
-        activities={sportsCategoryActivities}
-        handleDeleteActivity={handleDeleteActivity}
-      />
+    <div className="toDoList_list">
+      {sportsCategoryActivities.length > 0 && (
+        <section>
+          <h3>Sports</h3>
+          <List
+            activities={sportsCategoryActivities}
+            handleDeleteActivity={handleDeleteActivity}
+          />
+        </section>
+      )}
 
-      {cookingCategoryActivities.length > 0 && <h3>Cooking</h3>}
-      <List
-        activities={cookingCategoryActivities}
-        handleDeleteActivity={handleDeleteActivity}
-      />
-      {healthCategoryActivities.length > 0 && <h3>Health & Fitness</h3>}
-      <List
-        activities={healthCategoryActivities}
-        handleDeleteActivity={handleDeleteActivity}
-      />
-      {travelCategoryActivities.length > 0 && <h3>Travel</h3>}
-      <List
-        activities={travelCategoryActivities}
-        handleDeleteActivity={handleDeleteActivity}
-      />
+      {cookingCategoryActivities.length > 0 && (
+        <section>
+          <h3>Cooking</h3>
+          <List
+            activities={cookingCategoryActivities}
+            handleDeleteActivity={handleDeleteActivity}
+          />
+        </section>
+      )}
 
-      {shoppingCategoryActivities.length > 0 && <h3>Shopping</h3>}
-      <List
-        activities={shoppingCategoryActivities}
-        handleDeleteActivity={handleDeleteActivity}
-      />
-    </>
+      {healthCategoryActivities.length > 0 && (
+        <section>
+          <h3>Health & Fitness</h3>
+          <List
+            activities={healthCategoryActivities}
+            handleDeleteActivity={handleDeleteActivity}
+          />
+        </section>
+      )}
+
+      {travelCategoryActivities.length > 0 && (
+        <section>
+          <h3>Travel</h3>
+          <List
+            activities={travelCategoryActivities}
+            handleDeleteActivity={handleDeleteActivity}
+          />
+        </section>
+      )}
+
+      {shoppingCategoryActivities.length > 0 && (
+        <section>
+          <h3>Shopping</h3>
+          <List
+            activities={shoppingCategoryActivities}
+            handleDeleteActivity={handleDeleteActivity}
+          />
+        </section>
+      )}
+    </div>
   );
 };
 
