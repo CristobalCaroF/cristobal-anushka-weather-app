@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./components/Form";
@@ -7,12 +8,16 @@ import Weather from "./components/Weather";
 import useLocalStorageState from "use-local-storage-state";
 
 // const isGoodWeather = true;
+// import useLocalStorageState from "use-local-storage-state";
+
+const isGoodWeather = true;
 
 function App() {
   // const [activities, setActivities] = useLocalStorageState("activities", {
   //   defaultValue: [],
   // });
   const [activities, setActivities] = useState([]);
+
   const [weather, setWeather] = useState();
 
   useEffect(() => {
@@ -34,17 +39,6 @@ function App() {
     setActivities([...activities, { id: uid(), ...newActivity }]);
   }
 
-  /*--------------------*/
-
-  function filterActivities() {
-    setActivities(
-      activities.filter((activity) => {
-        return activity.goodWeatherActivity === isGoodWeather;
-      })
-    );
-  }
-  /*--------------------*/
-
   return (
     <>
       <header>
@@ -58,6 +52,48 @@ function App() {
               goodWeatherActivity={activities.goodWeatherActivity}
               id={activities.id}
             />
+                
+  const filterActivities = activities.filter(
+    (activity) => activity.isGoodWeather === isGoodWeather
+  );
+  console.log(filterActivities);
+  console.log(activities);
+
+  /*--------------------*/
+
+  //   setActivities(
+  //     activities.filter((activity) => {
+  //       return activity.goodWeatherActivity === isGoodWeather;
+  //     })
+  //   );
+  // }
+  /*--------------------*/
+
+  const handleDeleteActivity = (id) => {
+    const deletedActivitiesList = activities.filter(
+      (activity) => activity.id != id
+    );
+    setActivities(deletedActivitiesList);
+  };
+
+  return (
+    <>
+      <ul>
+        <h2>
+          {isGoodWeather
+            ? "The weather is awesome! Go outside and:"
+            : "Bad weather outside! Here's what you can do now:"}
+        </h2>
+        {filterActivities.map((activity) => (
+          <li key={activities.id}>
+            <List
+              name={activity.name}
+              goodWeatherActivity={activity.goodWeatherActivity}
+              id={activity.id}
+              onDeleteActivity={handleDeleteActivity}
+            />
+            <button onClick={() => handleDeleteActivity(activity.id)}>x</button>
+
           </li>
         ))}
       </ul>
