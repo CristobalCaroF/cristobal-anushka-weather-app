@@ -51,12 +51,7 @@ export default function City({ onSelectedCity }) {
   return (
     <>
       <label htmlFor="cities">Select a city:</label>
-      <select
-        name="cities"
-        id="cities"
-        value="city"
-        onChange={handleCityChange}
-      >
+      <select name="cities" id="cities" onChange={handleCityChange}>
         <option value="default">Choose a location</option>
         <option value="europe">Europe</option>
         <option value="sahara">Sahara</option>
@@ -66,5 +61,3 @@ export default function City({ onSelectedCity }) {
     </>
   );
 }
-// }
-// export default CitySelector;
