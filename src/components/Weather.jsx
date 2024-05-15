@@ -7,14 +7,6 @@ export default function Weather({ onWeather }) {
   if (!onWeather) {
     return <h1>Loading...</h1>;
   }
-  //  else {
-  //   if (onWeather.isGoodWeather === true) {
-  //     weatherMessage = "The weather is awesome!" + "\nGo outside and:";
-  //   } else {
-  //     weatherMessage =
-  //       "Bad weather outside!" + "\nHere is what you can do now:";
-  //   }
-  // }
 
   return (
     <>

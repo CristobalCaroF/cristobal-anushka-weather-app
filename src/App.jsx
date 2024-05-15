@@ -21,7 +21,7 @@ function App() {
   // -----------------------FILTER ACTIVITY--------------------------------------
 
   const filterActivities = activities.filter(
-    (activity) => activity.isGoodWeather === weather.isGoodWeather
+    (activity) => activity?.isGoodWeather === weather?.isGoodWeather
   );
 
   // ------------------------FETCHING API--------------------------------------------
@@ -39,6 +39,8 @@ function App() {
       }
     }
     startFetching();
+    const interval = setInterval(startFetching, 5000);
+    return clearInterval(interval.id);
   }, []);
 
   // -----------------------HANDLE DELETE ACTIVITY----------------------------------
@@ -59,7 +61,7 @@ function App() {
       </header>
       <ul>
         {filterActivities.map((activity) => (
-          <li key={activities.id}>
+          <li key={activity.id}>
             <List
               // ################## REFACTOR THIS!!#################################
               name={activity.name}
