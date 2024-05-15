@@ -1,3 +1,5 @@
+import "./Form.css";
+
 export default function Form({ onAddActivity }) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -14,13 +16,23 @@ export default function Form({ onAddActivity }) {
     event.target.name.focus();
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <h2>Add new Activity:</h2>
-      <label htmlFor="activityName">Name:</label>
-      <input type="text" id="activityName" name="name" maxLength={10}></input>
+      <label className="form__label" htmlFor="activityName">
+        Name:
+      </label>
+      <input
+        className="form__input-text"
+        type="text"
+        id="activityName"
+        name="name"
+        maxLength={10}
+      ></input>
       <br />
       <section>
-        <label htmlFor="toDoList">What's your mood today?</label>
+        <label className="form__label" htmlFor="toDoList">
+          What's your mood today?
+        </label>
         <select name="toDoList" id="toDoList">
           <option value="default">Choose from here</option>
           <option value="sports">Sports</option>
@@ -30,14 +42,19 @@ export default function Form({ onAddActivity }) {
           <option value="shopping">Shopping</option>
         </select>
       </section>
-      <label htmlFor="goodWeatherActivity">Good-weather activity:</label>
+      <label className="form__label" htmlFor="goodWeatherActivity">
+        Good-weather activity:
+      </label>
       <input
+        className="form__checkbox"
         type="checkbox"
         id="goodWeatherActivity"
         name="goodWeatherActivity"
       ></input>
       <br />
-      <button>Submit</button>
+      <button type="submit" className="form__button">
+        Submit
+      </button>
     </form>
   );
 }

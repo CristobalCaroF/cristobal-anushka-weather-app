@@ -1,0 +1,7 @@
+.select__cities {
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.5rem;
+  margin-top: 32px; */
+  font-family: "Segoe UI";
+}

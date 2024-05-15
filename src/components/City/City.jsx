@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./City.css";
 
 // export default function City({ onSelectedCity }) {
 //   const options = [
@@ -49,8 +50,10 @@ export default function City({ onSelectedCity }) {
   }
 
   return (
-    <>
-      <label htmlFor="cities">Select a city:</label>
+    <header className="city__header">
+      <label className="select__cities" htmlFor="cities">
+        Select a city:
+      </label>
       <select name="cities" id="cities" onChange={handleCityChange}>
         <option value="default">Choose a location</option>
         <option value="europe">Europe</option>
@@ -58,6 +61,6 @@ export default function City({ onSelectedCity }) {
         <option value="arctic">Arctic</option>
         <option value="rainforest">Rainforest</option>
       </select>
-    </>
+    </header>
   );
 }

@@ -4,6 +4,7 @@
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+  font-family: "Segoe UI";
 }
 
 .toDoList_list section {
