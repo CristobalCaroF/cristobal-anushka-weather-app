@@ -15,7 +15,7 @@ export default function Form({ onAddActivity }) {
     <form onSubmit={handleSubmit}>
       <h2>Add new Activity:</h2>
       <label htmlFor="activityName">Name:</label>
-      <input type="text" id="activityName" name="name"></input>
+      <input type="text" id="activityName" name="name" maxLength={10}></input>
       <br />
       <label htmlFor="goodWeatherActivity">Good-weather activity:</label>
       <input
