@@ -6,15 +6,25 @@ import List from "./components/List";
 import Weather from "./components/Weather";
 import useLocalStorageState from "use-local-storage-state";
 
-// const isGoodWeather = true;
-
 function App() {
-  // const [activities, setActivities] = useLocalStorageState("activities", {
-  //   defaultValue: [],
-  // });
-  const [activities, setActivities] = useState([]);
-
+  const [activities, setActivities] = useLocalStorageState("activities", {
+    defaultValue: [],
+  });
   const [weather, setWeather] = useState();
+
+  // -----------------------HANDLE ACTIVITY--------------------------------------
+
+  function handleAddActivity(newActivity) {
+    setActivities([...activities, { id: uid(), ...newActivity }]);
+  }
+
+  // -----------------------FILTER ACTIVITY--------------------------------------
+
+  const filterActivities = activities.filter(
+    (activity) => activity.isGoodWeather === weather.isGoodWeather
+  );
+
+  // ------------------------FETCHING API--------------------------------------------
 
   useEffect(() => {
     async function startFetching() {
@@ -31,15 +41,7 @@ function App() {
     startFetching();
   }, []);
 
-  function handleAddActivity(newActivity) {
-    setActivities([...activities, { id: uid(), ...newActivity }]);
-  }
-
-  const filterActivities = activities.filter(
-    (activity) => activity.isGoodWeather === weather.isGoodWeather
-  );
-  console.log(filterActivities);
-  console.log(activities);
+  // -----------------------HANDLE DELETE ACTIVITY----------------------------------
 
   const handleDeleteActivity = (id) => {
     const deletedActivitiesList = activities.filter(
@@ -47,6 +49,8 @@ function App() {
     );
     setActivities(deletedActivitiesList);
   };
+
+  // -----------------------RENDERING----------------------------------------------
 
   return (
     <>
@@ -57,9 +61,9 @@ function App() {
         {filterActivities.map((activity) => (
           <li key={activities.id}>
             <List
-              // ------------------- REFACTOR THIS!!--------------------------------------------
+              // ################## REFACTOR THIS!!#################################
               name={activity.name}
-              goodWeatherActivity={activity.goodWeatherActivity}
+              goodWeatherActivity={activity.isGoodWeather}
               id={activity.id}
               onDeleteActivity={handleDeleteActivity}
             />
