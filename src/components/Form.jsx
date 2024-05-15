@@ -1,15 +1,6 @@
 export default function Form({ onAddActivity }) {
-  //   const getData = { name: "", ifForGoodWeather: true };
   function handleSubmit(event) {
     event.preventDefault();
-
-    // const formData = new FormData(event.target);
-    // const data = Object.fromEntries(formData);
-    // console.log(data);
-
-    // {...data, goodWeatherActivity.checked} = data
-
-    // onAddActivity(data);
 
     const formElements = event.target.elements;
     const activity = {
