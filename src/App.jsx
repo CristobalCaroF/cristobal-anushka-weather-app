@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Form from "./components/Form";
+import Form from "./components/Form/Form";
 import { uid } from "uid";
-import List from "./components/List";
-import Weather from "./components/Weather";
+import Weather from "./components/Weather/Weather";
 import useLocalStorageState from "use-local-storage-state";
-import City from "./components/City";
+import City from "./components/City/City";
+import TodoList from "./components/ToDoList/TodoList";
 
 function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
@@ -21,11 +21,13 @@ function App() {
     setActivities([...activities, { id: uid(), ...newActivity }]);
   }
 
-  // -----------------------FILTER ACTIVITY--------------------------------------
+  /* -----------------------FILTER ACTIVITY--------------------------------------
+  --------------------------------------
 
   const filterActivities = activities.filter(
     (activity) => activity?.isGoodWeather === weather?.isGoodWeather
   );
+  */
 
   // ------------------------CITY SELECTOR----------------------------------------
   function handleSelectedCity(newCity) {
@@ -67,20 +69,10 @@ function App() {
       <header>
         <Weather onWeather={weather} />
       </header>
-      <ul>
-        {filterActivities.map((activity) => (
-          <li key={activity.id}>
-            <List
-              // ################## REFACTOR THIS!!#################################
-              name={activity.name}
-              goodWeatherActivity={activity.isGoodWeather}
-              id={activity.id}
-              onDeleteActivity={handleDeleteActivity}
-            />
-            <button onClick={() => handleDeleteActivity(activity.id)}>x</button>
-          </li>
-        ))}
-      </ul>
+      <TodoList
+        activities={activities}
+        handleDeleteActivity={handleDeleteActivity}
+      />
       <Form onAddActivity={handleAddActivity} />
       <City onSelectedCity={handleSelectedCity} />
     </>

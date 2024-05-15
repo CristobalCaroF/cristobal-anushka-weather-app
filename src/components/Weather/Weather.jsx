@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function Weather({ onWeather }) {
-  console.log("onWeather", onWeather);
+  //console.log("onWeather", onWeather);
   let weatherMessage = "";
 
   if (!onWeather) {
