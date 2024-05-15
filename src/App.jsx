@@ -5,12 +5,15 @@ import { uid } from "uid";
 import List from "./components/List";
 import Weather from "./components/Weather";
 import useLocalStorageState from "use-local-storage-state";
+import City from "./components/City";
 
 function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
   const [weather, setWeather] = useState();
+  const [city, setCity] = useState("europe");
+  // const [selectedCity, setSelectedCity] = useState("");
 
   // -----------------------HANDLE ACTIVITY--------------------------------------
 
@@ -24,13 +27,18 @@ function App() {
     (activity) => activity?.isGoodWeather === weather?.isGoodWeather
   );
 
-  // ------------------------FETCHING API--------------------------------------------
+  // ------------------------CITY SELECTOR----------------------------------------
+  function handleSelectedCity(newCity) {
+    setCity(newCity);
+  }
+
+  // ------------------------FETCHING API-----------------------------------------
 
   useEffect(() => {
     async function startFetching() {
       try {
         const response = await fetch(
-          `https://example-apis.vercel.app/api/weather`
+          `https://example-apis.vercel.app/api/weather/${city}`
         );
         const weather = await response.json();
         setWeather(weather);
@@ -40,8 +48,8 @@ function App() {
     }
     startFetching();
     const interval = setInterval(startFetching, 5000);
-    return clearInterval(interval.id);
-  }, []);
+    return () => clearInterval(interval);
+  }, [city]);
 
   // -----------------------HANDLE DELETE ACTIVITY----------------------------------
 
@@ -74,6 +82,7 @@ function App() {
         ))}
       </ul>
       <Form onAddActivity={handleAddActivity} />
+      <City onSelectedCity={handleSelectedCity} />
     </>
   );
 }
