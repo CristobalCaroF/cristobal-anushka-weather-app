@@ -3,6 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: "Segoe UI";
+  border: solid black;
+  background-color: rgb(218, 245, 248);
 }
 
 .logo {

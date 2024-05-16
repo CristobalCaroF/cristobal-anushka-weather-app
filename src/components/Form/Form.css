@@ -1,0 +1,55 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 32px;
+  font-family: "Segoe UI";
+  align-items: center;
+}
+
+.form > h2 {
+  margin-bottom: 0;
+}
+
+/* .form__fields {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+} */
+
+/* .form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  } */
+
+.form__label {
+  font-size: 1.1rem;
+}
+
+.form__input,
+.form__button {
+  padding-inline: 20px;
+  padding-block: 10px;
+  font: inherit;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.form__checkbox {
+  margin: 0;
+  aspect-ratio: 1;
+  width: 20px;
+  align-self: center;
+}
+
+.form__button {
+  background-color: rgb(3, 90, 101);
+  color: white;
+}
+
+.form__button:hover {
+  background-color: rgb(38, 42, 4);
+  border-color: yellow;
+}
