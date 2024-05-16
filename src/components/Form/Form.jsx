@@ -39,6 +39,7 @@ export default function Form({ onAddActivity }) {
         <option value="healthfitness">Health & Fitness</option>
         <option value="travel">Travel</option>
         <option value="shopping">Shopping</option>
+        <option value="relax">Relax</option>
       </select>
       <label className="form__label" htmlFor="goodWeatherActivity">
         Good-weather activity:
