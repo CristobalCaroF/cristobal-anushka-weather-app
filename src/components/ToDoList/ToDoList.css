@@ -8,7 +8,7 @@
 }
 
 .toDoList_list section {
-  background-color: rgb(224, 244, 160);
+  background-color: rgb(168, 199, 195);
   padding: 10px;
   width: 150px;
   height: 150px;
@@ -22,4 +22,5 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: rgb(3, 90, 101);
 }

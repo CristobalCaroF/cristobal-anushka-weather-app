@@ -4,6 +4,7 @@
   gap: 0.5rem;
   margin-top: 32px;
   font-family: "Segoe UI";
+  align-items: center;
 }
 
 .form > h2 {
@@ -44,7 +45,7 @@
 }
 
 .form__button {
-  background-color: rgb(224, 244, 160);
+  background-color: rgb(3, 90, 101);
   color: white;
 }
 

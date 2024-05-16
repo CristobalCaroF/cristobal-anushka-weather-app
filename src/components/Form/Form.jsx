@@ -29,19 +29,17 @@ export default function Form({ onAddActivity }) {
         maxLength={10}
       ></input>
       <br />
-      <section>
-        <label className="form__label" htmlFor="toDoList">
-          What's your mood today?
-        </label>
-        <select name="toDoList" id="toDoList">
-          <option value="default">Choose from here</option>
-          <option value="sports">Sports</option>
-          <option value="cooking">Cooking</option>
-          <option value="healthfitness">Health & Fitness</option>
-          <option value="travel">Travel</option>
-          <option value="shopping">Shopping</option>
-        </select>
-      </section>
+      <label className="form__label" htmlFor="toDoList">
+        What's your mood today?
+      </label>
+      <select name="toDoList" id="toDoList">
+        <option value="default">Choose from here</option>
+        <option value="sports">Sports</option>
+        <option value="cooking">Cooking</option>
+        <option value="healthfitness">Health & Fitness</option>
+        <option value="travel">Travel</option>
+        <option value="shopping">Shopping</option>
+      </select>
       <label className="form__label" htmlFor="goodWeatherActivity">
         Good-weather activity:
       </label>
@@ -50,7 +48,7 @@ export default function Form({ onAddActivity }) {
         type="checkbox"
         id="goodWeatherActivity"
         name="goodWeatherActivity"
-      ></input>
+      />
       <br />
       <button type="submit" className="form__button">
         Submit

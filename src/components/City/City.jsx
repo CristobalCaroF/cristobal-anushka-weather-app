@@ -52,11 +52,12 @@ export default function City({ onSelectedCity }) {
   return (
     <header className="city__header">
       <label className="select__cities" htmlFor="cities">
-        Select a city:
+        Select a region:
       </label>
       <select name="cities" id="cities" onChange={handleCityChange}>
-        <option value="default">Choose a location</option>
-        <option value="europe">Europe</option>
+        <option value="europe" selected>
+          Europe
+        </option>
         <option value="sahara">Sahara</option>
         <option value="arctic">Arctic</option>
         <option value="rainforest">Rainforest</option>

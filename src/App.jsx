@@ -22,12 +22,11 @@ function App() {
   }
 
   /* -----------------------FILTER ACTIVITY--------------------------------------
-  --------------------------------------
+  -------------------------------------- */
 
   const filterActivities = activities.filter(
     (activity) => activity?.isGoodWeather === weather?.isGoodWeather
   );
-  */
 
   // ------------------------CITY SELECTOR----------------------------------------
   function handleSelectedCity(newCity) {
@@ -66,15 +65,13 @@ function App() {
 
   return (
     <>
-      <header>
-        <Weather onWeather={weather} />
-      </header>
+      <City onSelectedCity={handleSelectedCity} />
+      <Weather onWeather={weather} />
       <TodoList
-        activities={activities}
+        activities={filterActivities}
         handleDeleteActivity={handleDeleteActivity}
       />
       <Form onAddActivity={handleAddActivity} />
-      <City onSelectedCity={handleSelectedCity} />
     </>
   );
 }

@@ -1,12 +1,25 @@
-/* .weather_condition {
+.weather_condition {
   display: flex;
   flex-direction: row;
-}
-
-.weather_condition_img.weather_condition_temperature {
-  flex-direction: column;
+  margin-top: 15px;
 }
 
 .weather-condition_condition {
   flex-direction: row;
-} */
+}
+
+.weather_condition_img {
+  font-size: 85px;
+  margin: 5px;
+}
+
+.weather_condition_temperature {
+  font-size: 32px;
+  margin-left: 30px;
+}
+
+.weather-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
